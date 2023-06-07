@@ -1,0 +1,59 @@
+#pragma once
+
+#include <gl/glcorearb.h>
+#include <gl/wglext.h>
+
+// GL stuff
+extern PFNGLCLEARPROC glClear;
+extern PFNGLENABLEPROC glEnable;
+extern PFNGLDISABLEPROC glDisable;
+extern PFNGLVIEWPORTPROC glViewport;
+extern PFNGLGETSTRINGPROC glGetString;
+extern PFNGLUNIFORM1IPROC glUniform1i;
+extern PFNGLBLENDFUNCPROC glBlendFunc;
+extern PFNGLDRAWARRAYSPROC glDrawArrays;
+extern PFNGLBINDBUFFERPROC glBindBuffer;
+extern PFNGLUSEPROGRAMPROC glUseProgram;
+extern PFNGLCLEARCOLORPROC glClearColor;
+extern PFNGLLINKPROGRAMPROC glLinkProgram;
+extern PFNGLPOLYGONMODEPROC glPolygonMode;
+extern PFNGLBINDTEXTUREPROC glBindTexture;
+extern PFNGLDRAWELEMENTSPROC glDrawElements;
+extern PFNGLDELETESHADERPROC glDeleteShader;
+extern PFNGLDETACHSHADERPROC glDetachShader;
+extern PFNGLATTACHSHADERPROC glAttachShader;
+extern PFNGLCREATESHADERPROC glCreateShader;
+extern PFNGLSHADERSOURCEPROC glShaderSource;
+extern PFNGLBLENDEQUATIONPROC glBlendEquation;
+extern PFNGLACTIVETEXTUREPROC glActiveTexture;
+extern PFNGLCOMPILESHADERPROC glCompileShader;
+extern PFNGLCREATEPROGRAMPROC glCreateProgram;
+extern PFNGLCREATEBUFFERSPROC glCreateBuffers;
+extern PFNGLDELETEBUFFERSPROC glDeleteBuffers;
+extern PFNGLCREATETEXTURESPROC glCreateTextures;
+extern PFNGLDELETETEXTURESPROC glDeleteTextures;
+extern PFNGLNAMEDBUFFERDATAPROC glNamedBufferData;
+extern PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
+extern PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv;
+extern PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D;
+extern PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate;
+extern PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D;
+extern PFNGLTEXTUREPARAMETERIPROC glTextureParameteri;
+extern PFNGLNAMEDBUFFERSUBDATAPROC glNamedBufferSubData;
+extern PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
+extern PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays;
+extern PFNGLCREATEVERTEXARRAYSPROC glCreateVertexArrays;
+extern PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
+extern PFNGLVERTEXATTRIBIPOINTERPROC glVertexAttribIPointer;
+extern PFNGLDEBUGMESSAGECALLBACKPROC glDebugMessageCallback;
+extern PFNGLPRIMITIVERESTARTINDEXPROC glPrimitiveRestartIndex;
+extern PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
+extern PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray;
+
+// WGL stuff
+extern PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
+extern PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
+extern PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
+
+
+int load_GL_calls();
