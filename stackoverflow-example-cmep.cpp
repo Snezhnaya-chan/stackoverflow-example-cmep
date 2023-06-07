@@ -273,47 +273,20 @@ namespace Engine
 	}
 }
 
-void spinSleep(double seconds)
-{
-	static double estimate = 5e-3;
-	static double mean = 5e-3;
-	static double m2 = 0;
-	static int64_t count = 1;
-
-	while (seconds > estimate) {
-		const auto start = std::chrono::steady_clock::now();
-		std::this_thread::sleep_for(std::chrono::milliseconds(2));
-		const auto end = std::chrono::steady_clock::now();
-
-		const double observed = (end - start).count() / 1e9;
-		seconds -= observed;
-
-		count++;
-		const double delta = observed - mean;
-		mean += delta / count;
-		m2 += delta * (observed - mean);
-		const double stddev = sqrt(m2 / (count - 1));
-		estimate = mean + stddev;
-	}
-
-	// spin lock
-	const auto start = std::chrono::steady_clock::now();
-	while ((std::chrono::steady_clock::now() - start).count() / 1e9 < seconds) {};
-}
-
 Engine::Rendering::Window* window = nullptr;
 
 static void renderLoop()
 {
+	window->AcquireContext();
+	
+	wglSwapIntervalEXT(1);
+
 	while (true)
 	{
-		window->AcquireContext();
 		glClearColor(0.1, 0.13, 0.12, 1.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		window->SwapWindowBuffers();
-
-		spinSleep(0.014);
 	}
 }
 
